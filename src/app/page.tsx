@@ -1,10 +1,7 @@
-import Image from "next/image";
-import DiscordButton from "@/app/components/DiscordButton";
+export default async function Home() {
+    return (
+        <>
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <DiscordButton />
-    </main>
-  );
+        </>
+    );
 }
