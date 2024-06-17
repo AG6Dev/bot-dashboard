@@ -1,9 +1,6 @@
 import Link from "next/link";
-import {auth} from "@/auth";
 
 export default async function NavLeft() {
-    const session = await auth();
-
     return (
         <nav className="flex items-center space-x-4 lg:space-x-6">
             <div className="flex h-[60px] items-center px-6">
