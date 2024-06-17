@@ -3,6 +3,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import NavLeft from "@/app/components/nav/NavLeft";
 import UserButton from "@/app/components/nav/UserButton";
+import {auth} from "@/auth";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -11,7 +12,12 @@ export const metadata: Metadata = {
     description: "Dashboard for discord bot",
 };
 
-export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+    const session = await auth();
+
+    console.log(session?.user)
+    console.log(session?.user)
+
     return (
         <html lang="en">
             <body className={inter.className}>
