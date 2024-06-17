@@ -8,15 +8,18 @@ export default async function NavLeft() {
         <nav className="flex items-center space-x-4 lg:space-x-6">
             <div className="flex h-[60px] items-center px-6">
                 <Link href="/" className="flex items-center gap-2 font-semibold">
-                    <span>Bot Dashboard</span>
+                    <span>Discord Bot</span>
                 </Link>
             </div>
+            <Link href={"/"} className="text-sm font-medium transition-colors hover:text-gray-200">
+                Home
+            </Link>
             <Link href={"/dashboard"}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-gray-200">
+                  className="text-sm font-medium transition-colors hover:text-gray-200">
                 Dashboard
             </Link>
             <Link href={"/docs"}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-text-gray-200">
+                  className="text-sm font-medium transition-colors hover:text-gray-200">
                 Documentation
             </Link>
         </nav>
