@@ -1,12 +1,13 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
-import "./globals.css";
-import NavLeft from "@/app/components/nav/NavLeft";
-import UserButton from "@/app/components/nav/UserButton";
-import SignOutButton from "@/app/components/SignOutButton";
-import AuthProvider from "@/app/components/AuthProvider";
+import {Inter as FontSans} from "next/font/google";
+import {cn} from "@/lib/utils"
+import "./styles/globals.css";
+import Navbar from "@/components/Navbar";
 
-const inter = Inter({subsets: ["latin"]});
+const fontSans = FontSans({
+    subsets: ["latin"],
+    variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
     title: "Bot Dashboard",
@@ -16,19 +17,9 @@ export const metadata: Metadata = {
 export default async function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-        <body className={inter.className}>
+        <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
 
-        <div className="border-b">
-            <div className="flex h-16 items-center px-4">
-                <AuthProvider>
-                    <NavLeft/>
-                    <div className="ml-auto flex items-center space-x-6">
-                        <UserButton/>
-                        <SignOutButton/>
-                    </div>
-                </AuthProvider>
-            </div>
-        </div>
+        <Navbar/>
 
         {children}
         </body>

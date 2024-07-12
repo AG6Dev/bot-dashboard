@@ -2,16 +2,15 @@
 
 import {signIn, useSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
+import {Button} from "@/components/ui/button";
 
 export default function GoToDashboardButton() {
     const router = useRouter();
     const { data: session} = useSession();
 
-    console.log(session)
     return (
-        <button onClick={() => session ? router.push("/dashboard") : signIn("discord")}
-                className="border-white border-2 font-bold pt-2.5 pb-2.5 w-48 rounded-2xl">
+        <Button onClick={() => session ? router.push("/dashboard") : signIn("discord")} variant="outline" className="w-48 py-5">
             {session ? "Go to Dashboard" : "Sign in via Discord"}
-        </button>
+        </Button>
     )
 }
