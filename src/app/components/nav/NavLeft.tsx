@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 
 export default async function NavLeft() {
     return (
-        <nav className="flex items-center space-x-4 lg:space-x-6">
-            <div className="flex h-[60px] items-center px-6">
+        <nav className="flex items-center space-x-4 lg:space-x-6 h-16">
+            <div className="flex items-center px-6">
                 <Link href="/" className="flex items-center gap-2 font-semibold">
                     <span>Discord Bot</span>
                 </Link>

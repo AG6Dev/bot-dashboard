@@ -1,17 +1,13 @@
-import {auth, signIn} from "@/auth";
-import SignOutButton from "@/app/components/SignOutButton";
 import {redirect} from "next/navigation";
+import {getServerSession} from "next-auth";
 
 export default async function Dashboard() {
-    const session = await auth();
+    const session = await getServerSession();
     if (!session) redirect('/')
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>Dashboard</h1>
-
-            <SignOutButton/>
-            Welcome, {session?.user?.name}!
+        <main className="flex flex-col items-center justify-between p-12">
+            <h1 className="font-bold text-2xl">Welcome to the Dashboard, {session?.user?.name}!</h1>
         </main>
     )
 }

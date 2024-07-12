@@ -1,15 +1,10 @@
-import {auth, signIn, signOut} from '@/auth'
-import {redirect} from "next/navigation";
+"use client";
 
+import {signOut} from "next-auth/react";
+
+//TODO: Temporary will be replaced in the future
 export default function SignOutButton() {
-    const session = auth();
-
     return (
-        <form action={async () => {
-            "use server";
-            await signOut({redirectTo: "/"});
-        }}>
-            <button type="submit">Sign out</button>
-        </form>
+        <button onClick={() => signOut()}>Sign out</button>
     )
 }
